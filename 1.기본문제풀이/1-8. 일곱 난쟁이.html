@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = arr; //얕은 복사
+        let sum = arr.reduce((a, b) => a + b, 0);
+        for (let i = 0; i < arr.length - 1; i++) {
+          for (let j = i + 1; j < arr.length; j++) {
+            if (sum - (arr[i] + arr[j]) === 100) {
+              arr.splice(j, 1); //j번째 인덱스의 값을 제거한다.
+              arr.splice(i, 1); //i번째 인덱스의 값을 제거한다.
+              //값을 지울때 j부터 지워야 인덱스가 제대로 지워진다.
+              //i 먼저 지우면 j번째 인덱스의 값이 당겨지면서 다른 숫자가 제거되는 오류 발생
+            }
+          }
+        }
+        return answer;
+      }
+      let arr = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
