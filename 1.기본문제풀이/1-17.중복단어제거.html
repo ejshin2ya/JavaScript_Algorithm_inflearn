@@ -1,0 +1,62 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = [];
+        for (let x of s) {
+          if (answer.includes(x)) continue;
+          else answer.push(x);
+        }
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = [];
+        for (let i = 0; i < s.length; i++) {
+          if (s.indexOf(s[i]) == i) {
+            answer.push(s[i]);
+          }
+        }
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- filter함수 적용하기 : filter는 첫번째 인자의 콜백함수가 참인 요소를 새로운 배열에 넣어서 만들어준다.  -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = s.filter(function (v, i) {
+          return s.indexOf(v) === i;
+        });
+        return answer;
+      }
+      let str = ["good", "time", "good", "time", "student"];
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
