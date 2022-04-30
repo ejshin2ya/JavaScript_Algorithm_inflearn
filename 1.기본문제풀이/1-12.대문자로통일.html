@@ -1,0 +1,68 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        for (x of s) {
+          answer += x.toUpperCase();
+        }
+        return answer;
+      }
+
+      let str = "ItisTimeToStudy";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        for (x of s) {
+          if (x === x.toLowerCase()) answer += x.toUpperCase();
+          else answer += x;
+        }
+        return answer;
+      }
+
+      let str = "ItisTimeToStudy";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        for (x of s) {
+          let num = x.charCodeAt(); //문자열을 아스키코드로 바꿔주는 함수
+          if (num >= 97 && num <= 122)
+            //소문자에 해당하는 아스키코드
+            answer += String.fromCharCode(num - 32);
+          //String.fromCharCode()를 통해 아스키코드를 문자열형태로 바꿀 수 있다.
+          else answer += x;
+        }
+        return answer;
+      }
+
+      let str = "ItisTimeToStudy";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
