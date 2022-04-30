@@ -1,0 +1,40 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        for (let x of s) {
+          if (x === "A") answer += "#";
+          else answer += x;
+        }
+        return answer;
+      }
+
+      let str = "BANANA";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        //문자열은 얕은 복사만 가능하다. 주소참조를 하는 것이 아니라 값만 참조한다.
+        let answer = s.replace(/A/g, "#"); //정규표현식으로 g를 써줘야 전체 문자열의 A를 #으로 바꿀 수 있다.
+        return answer;
+      }
+
+      let str = "BANANA";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
