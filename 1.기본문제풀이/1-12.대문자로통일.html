@@ -7,7 +7,7 @@
     <script>
       function solution(s) {
         let answer = "";
-        for (x of s) {
+        for (let x of s) {
           answer += x.toUpperCase();
         }
         return answer;
@@ -28,7 +28,7 @@
     <script>
       function solution(s) {
         let answer = "";
-        for (x of s) {
+        for (let x of s) {
           if (x === x.toLowerCase()) answer += x.toUpperCase();
           else answer += x;
         }
@@ -50,7 +50,7 @@
     <script>
       function solution(s) {
         let answer = "";
-        for (x of s) {
+        for (let x of s) {
           let num = x.charCodeAt(); //문자열을 아스키코드로 바꿔주는 함수
           if (num >= 97 && num <= 122)
             //소문자에 해당하는 아스키코드
