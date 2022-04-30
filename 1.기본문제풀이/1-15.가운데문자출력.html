@@ -1,0 +1,80 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = "";
+        let len = s.length;
+        if (len % 2 === 1) {
+          //홀수라면
+          answer += s[Math.floor(len / 2)];
+        } else {
+          //짝수라면
+          answer += s[len / 2 - 1];
+          answer += s[len / 2];
+        }
+
+        return answer;
+      }
+      console.log(solution("stoudy"));
+    </script>
+  </body>
+</html> -->
+<!-- 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let mid = Math.floor(s.length / 2);
+        if (s.length % 2 === 1) {
+          //홀수라면
+          answer = s.substring(mid, mid + 1); 
+          //substring을 사용하여 문자열을 인덱스로 가져올 수 있다.
+          //substring(1,2)는 1번인덱스부터 2번인덱스전까지를 가져오는 것이다.
+        } else {
+          //짝수라면
+          answer = s.substring(mid - 1, mid + 1);
+        }
+
+        return answer;
+      }
+      console.log(solution("length"));
+    </script>
+  </body>
+</html> -->
+
+<!-- substr 사용 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer;
+        let mid = Math.floor(s.length / 2);
+        if (s.length % 2 === 1) {
+          //홀수라면
+          answer = s.substr(mid, 1);
+          //substr을 사용하여 문자열을 인덱스로 가져올 수 있다.
+          //substr(1,2)는 1번인덱스부터 2개의 값을 가져오는 것이다.
+        } else {
+          //짝수라면
+          answer = s.substring(mid - 1, 2);
+        }
+
+        return answer;
+      }
+      console.log(solution("length"));
+    </script>
+  </body>
+</html>
