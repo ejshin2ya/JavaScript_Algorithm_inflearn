@@ -1,0 +1,76 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        s = s.split("");
+        let n = s.length;
+        for (let i = 0; i < n; i++) {
+          if (s[i] === t) s[i] = 0;
+          else s[i] = 101;
+        }
+        for (let i = 0; i < n; i++) {
+          if (s[i] === 0) {
+            let idx = 1;
+            while (i - idx >= 0 && s[i - idx] !== 0) {
+              if (s[i - idx] > idx) {
+                s[i - idx] = idx;
+              }
+              idx++;
+            }
+            idx = 1;
+            while (i + idx < n && s[i - idx] !== 0) {
+              if (s[i + idx] > idx) {
+                s[i + idx] = idx;
+              }
+              idx++;
+            }
+          }
+        }
+        return s;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s, t) {
+        let answer = [];
+        let n = s.length;
+        let num = 100;
+        for (let i = 0; i < n; i++) {
+          if (s[i] === t) {
+            num = 0;
+            answer[i] = num;
+          } else answer[i] = ++num;
+        }
+        num = 100;
+        for (let i = n - 1; i >= 0; i--) {
+          if (s[i] === t) {
+            num = 0;
+            answer[i] = num;
+          } else {
+            ++num;
+            answer[i] = Math.min(num, answer[i]);
+          }
+        }
+        return answer;
+      }
+
+      let str = "teachermode";
+      console.log(solution(str, "e"));
+    </script>
+  </body>
+</html>
