@@ -1,0 +1,45 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        s = s.toUpperCase();
+        let answer = "YES";
+        let len = s.length;
+        for (let i = 0; i < Math.floor(len / 2); i++) {
+          if (s[i] !== s[len - i - 1]) return "NO";
+        }
+        return answer;
+      }
+
+      let str = "goooG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html> -->
+
+<!-- reverse 메소드 사용해보기 -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        s = s.toUpperCase();
+        let answer = "YES";
+        //reverse는 배열을 위한 함수이므로 split으로 배열형태로 만들어줘야함.
+        if (s.split("").reverse().join("") !== s) return "NO";
+        return answer;
+      }
+
+      let str = "goooG";
+      console.log(solution(str));
+    </script>
+  </body>
+</html>
