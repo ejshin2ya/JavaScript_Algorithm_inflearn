@@ -23,12 +23,18 @@
             break;
           }
         }
+        for (let [key, val] of str2) {
+          if (hs2.get(key) !== hs1.get(key)) {
+            answer = "NO";
+            break;
+          }
+        }
 
         return answer;
       }
 
-      let a = "abaCCD";
-      let b = "CCaab";
+      let a = "abaCC";
+      let b = "CCaabD";
       console.log(solution(a, b));
     </script>
   </body>
