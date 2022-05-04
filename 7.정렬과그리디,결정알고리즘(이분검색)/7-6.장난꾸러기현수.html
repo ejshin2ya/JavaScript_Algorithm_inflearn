@@ -1,0 +1,77 @@
+<!-- <html> //이렇게 풀면 예외 상황때 오류나는 경우 발생
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        for (let i = 0; i < arr.length - 1; i++) {
+          if (arr[i] >= arr[i + 1]) {
+            answer.push(i + 1);
+            break;
+          }
+        }
+        for (let i = arr.length - 1; i >= 1; i--) {
+          if (arr[i] <= arr[i - 1]) {
+            answer.push(i + 1);
+            break;
+          }
+        }
+        return answer;
+      }
+
+      let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let tmp = [];
+        for (let x of arr) tmp.push(x);
+        arr.sort(); //문자기주 정렬이므로 올바르지않게 정렬된다.
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== tmp[i]) answer.push(i + 1);
+        }
+        return answer;
+      }
+
+      let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(arr) {
+        let answer = [];
+        let sortArray = arr.slice(); //얕은 복사
+        sortArray.sort((a, b) => a - b);
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] !== sortArray[i]) answer.push(i + 1);
+        }
+
+        return answer;
+      }
+
+      let arr = [120, 125, 152, 130, 135, 135, 143, 127, 160];
+      console.log(solution(arr));
+    </script>
+  </body>
+</html>
