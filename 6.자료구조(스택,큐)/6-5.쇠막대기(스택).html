@@ -1,0 +1,58 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = 0;
+        let sum = 0;
+        if (s[0] === "(") sum++;
+        for (let i = 1; i < s.length; i++) {
+          if (s[i] === "(") sum++;
+          else if (s[i] === ")" && s[i - 1] === "(") {
+            sum--;
+            answer += sum;
+          } else if (s[i] === ")" && s[i - 1] === ")") {
+            answer += 1;
+            sum--;
+          }
+        }
+
+        return answer;
+      }
+
+      let a = "(((()(()()))(())()))(()())";
+      console.log(solution(a));
+    </script>
+  </body>
+</html> -->
+<!-- stack으로 풀어보기 -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(s) {
+        let answer = 0;
+        let stack = [];
+        for (let i = 0; i < s.length; i++) {
+          if (s[i] === "(") stack.push(s[i]);
+          else {
+            stack.pop();
+            if (s[i - 1] === "(") answer += stack.length;
+            else answer++;
+          }
+        }
+
+        return answer;
+      }
+
+      let a = "(((()(()()))(())()))(()())";
+      console.log(solution(a));
+    </script>
+  </body>
+</html>
