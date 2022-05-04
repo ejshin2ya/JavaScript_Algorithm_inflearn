@@ -40,7 +40,7 @@
         let queue = need.split("");
         for (let x of plan) {
           if (need.includes(x) && queue.shift() !== x) {
-            return = "NO";
+            return "NO";
           }
         }
         if (queue.length > 0) return "NO";
