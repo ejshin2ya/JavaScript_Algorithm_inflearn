@@ -1,0 +1,40 @@
+<!-- check -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function count(songs, capacity) {
+        let sum = 0;
+        let cnt = 1;
+        for (let x of songs) {
+          if (sum + x > capacity) {
+            cnt++;
+            sum = x;
+          } else sum += x;
+        }
+        return cnt;
+      }
+      function solution(m, songs) {
+        let answer = Number.MAX_SAFE_INTEGER;
+        let lt = Math.max(...songs);
+        let rt = songs.reduce((a, b) => a + b, 0);
+        while (lt <= rt) {
+          let mid = parseInt((lt + rt) / 2); // parseInt를 해줘야 한다.
+          if (m >= count(songs, mid)) {
+            answer = Math.min(mid, answer);
+            rt = mid - 1;
+          } else if (m < count(songs, mid)) lt = mid + 1;
+          else break;
+        }
+
+        return answer;
+      }
+
+      let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      console.log(solution(3, arr));
+    </script>
+  </body>
+</html>
