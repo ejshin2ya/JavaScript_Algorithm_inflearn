@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(n, m) {
+        let answer = [];
+        let tmp = Array.from({ length: m }, () => 0);
+        function DFS(idx) {
+          if (idx === m) {
+            answer.push(tmp.slice()); //주소가 복사되지 않고, 값 자체가 복사되도록 해준다.
+            return;
+          } else {
+            for (let i = 1; i <= n; i++) {
+              tmp[idx] = i;
+              DFS(idx + 1);
+            }
+          }
+        }
+        DFS(0);
+        return answer;
+      }
+
+      console.log(solution(3, 2));
+    </script>
+  </body>
+</html>
