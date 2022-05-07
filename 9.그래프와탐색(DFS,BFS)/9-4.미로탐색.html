@@ -1,3 +1,52 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(board) {
+        let answer = 0;
+        let dr = [-1, 1, 0, 0];
+        let dc = [0, 0, -1, 1];
+        let n = board.length;
+        let check = Array.from(Array(n), () => Array(n).fill(0));
+        function DFS(r, c) {
+          if (r === n - 1 && c === n - 1) {
+            answer++;
+          } else {
+            for (let i = 0; i < 4; i++) {
+              let nr = r + dr[i];
+              let nc = c + dc[i];
+              if (nr >= 0 && nc >= 0 && nr < n && nc < n) {
+                if (check[nr][nc] === 0 && board[nr][nc] === 0) {
+                  check[nr][nc] = 1;
+                  DFS(nr, nc);
+                  check[nr][nc] = 0;
+                }
+              }
+            }
+          }
+        }
+        check[0][0] = 1;
+        DFS(0, 0);
+        return answer;
+      }
+
+      let arr = [
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 1, 1, 1, 1, 0],
+        [0, 0, 0, 1, 0, 0, 0],
+        [1, 1, 0, 1, 0, 1, 1],
+        [1, 1, 0, 0, 0, 0, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +55,33 @@
   <body>
     <script>
       function solution(board) {
+        let answer = 0;
+        let dr = [-1, 1, 0, 0];
+        let dc = [0, 0, -1, 1];
+        let n = board.length;
+        function DFS(r, c) {
+          if (r === n - 1 && c === n - 1) {
+            answer++;
+          } else {
+            for (let i = 0; i < 4; i++) {
+              let nr = r + dr[i];
+              let nc = c + dc[i];
+              if (
+                nr >= 0 &&
+                nc >= 0 &&
+                nr < n &&
+                nc < n &&
+                board[nr][nc] === 0
+              ) {
+                board[nr][nc] = 1;
+                DFS(nr, nc);
+                board[nr][nc] = 0;
+              }
+            }
+          }
+        }
+        board[0][0] = 1;
+        DFS(0, 0);
         return answer;
       }
 
