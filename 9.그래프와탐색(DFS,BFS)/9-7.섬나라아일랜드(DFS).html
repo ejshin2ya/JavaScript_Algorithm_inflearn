@@ -1,3 +1,54 @@
+<!-- <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(board) {
+        let answer = 0;
+        let n = board.length;
+        let dr = [-1, 1, 0, 0, -1, -1, 1, 1];
+        let dc = [0, 0, -1, 1, -1, 1, -1, 1];
+        let ch = Array.from(Array(n), () => Array(n).fill(0));
+        console.log(ch);
+        function DFS(r, c) {
+          ch[r][c] = 1;
+          for (let i = 0; i < 8; i++) {
+            let nr = r + dr[i];
+            let nc = c + dc[i];
+            if (nr >= 0 && nc >= 0 && nr < n && nc < n) {
+              if (ch[nr][nc] === 0 && board[nr][nc] === 1) {
+                DFS(nr, nc);
+              }
+            }
+          }
+        }
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (ch[i][j] === 0 && board[i][j] === 1) {
+              answer++;
+              DFS(i, j);
+            }
+          }
+        }
+        return answer;
+      }
+
+      let arr = [
+        [1, 1, 0, 0, 0, 1, 0],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0, 0],
+        [1, 0, 1, 0, 1, 0, 0],
+      ];
+
+      console.log(solution(arr));
+    </script>
+  </body>
+</html> -->
 <html>
   <head>
     <meta charset="UTF-8" />
@@ -6,6 +57,30 @@
   <body>
     <script>
       function solution(board) {
+        let answer = 0;
+        let n = board.length;
+        let dr = [-1, 1, 0, 0, -1, -1, 1, 1];
+        let dc = [0, 0, -1, 1, -1, 1, -1, 1];
+        function DFS(r, c) {
+          board[r][c] = 0;
+          for (let i = 0; i < 8; i++) {
+            let nr = r + dr[i];
+            let nc = c + dc[i];
+            if (nr >= 0 && nc >= 0 && nr < n && nc < n) {
+              if (board[nr][nc] === 1) {
+                DFS(nr, nc);
+              }
+            }
+          }
+        }
+        for (let i = 0; i < n; i++) {
+          for (let j = 0; j < n; j++) {
+            if (board[i][j] === 1) {
+              answer++;
+              DFS(i, j);
+            }
+          }
+        }
         return answer;
       }
 
