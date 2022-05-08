@@ -6,6 +6,18 @@
   <body>
     <script>
       function solution(m, coin) {
+        let answer = Number.MAX_SAFE_INTEGER;
+        function DFS(cnt, sum) {
+          if (sum > m) return;
+          if (sum === m) {
+            answer = Math.min(answer, cnt);
+            return;
+          }
+          for (let i = 0; i < coin.length; i++) {
+            DFS(cnt + 1, sum + coin[i]);
+          }
+        }
+        DFS(0, 0);
         return answer;
       }
 

@@ -6,9 +6,19 @@
   <body>
     <script>
       function solution(m, arr) {
+        let answer = Number.MIN_SAFE_INTEGER;
+        function DFS(L, score, time) {
+          if (time > m) return;
+          if (L === arr.length) {
+            answer = Math.max(answer, score);
+          } else {
+            DFS(L + 1, score + arr[L][0], time + arr[L][1]);
+            DFS(L + 1, score, time);
+          }
+        }
+        DFS(0, 0, 0);
         return answer;
       }
-
       let arr = [
         [10, 5],
         [25, 12],
